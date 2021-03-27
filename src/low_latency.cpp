@@ -1,11 +1,28 @@
 #include <iostream>
-
+#include <vector>
+#include <string>
+#include <sstream>
 using namespace std;
-
 int main()
 {
-    std::string s;
-    while (std::cin >> s)
-        std::cout << 0 << std::endl;
-    return 0;
+    string str;
+    while (cin >> str)
+    {
+        for (char &c : str)
+        {
+            if (c == ',') c = ' ';
+        }
+        double a, b, temp;
+        a = 0;
+        stringstream ss(str);
+        while (ss >> temp)
+        {
+            a = b;
+            b = temp;
+        }
+        if (a < b) cout << 0 << endl;
+        else cout << 1 << endl;
+    }
+    
+    
 }
